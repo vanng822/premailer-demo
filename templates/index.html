@@ -1,0 +1,35 @@
+<html>
+	<head>
+		
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	</head>
+	<body>
+		<h2>Input:</h2>
+		<textarea id="input" class="form-control" rows="5"></textarea>
+		<button id="convert" class="btn" type="submit">Convert</button>
+		<h2>Output:</h2>
+		<textarea id="result" class="form-control" rows="10"></textarea>
+		<div id="resultHtml">
+		</div>
+
+		<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$("#convert").click(function() {
+				$.ajax({
+					method: 'post',
+					url : '/convert',
+					data : {html: $("#input").val()},
+					success : function(data) {
+						$("#result").val(data.result);
+						$("#resultHtml").html(data.result);
+					}
+				});
+			})
+		});
+		</script>
+	</body>
+</html>
