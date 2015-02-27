@@ -40,9 +40,10 @@ func main() {
 	app.Post("/convert", func(r render.Render, req *http.Request) {
 		req.ParseForm()
 		html := req.Form.Get("html")
+		var result string
 		if html != "" {
 			pre := premailer.NewPremailerFromString(html)
-			result, _ := pre.Transform()
+			result, _ = pre.Transform()
 		} else {
 			result = ""
 		}
