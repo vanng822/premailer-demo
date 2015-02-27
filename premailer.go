@@ -20,7 +20,7 @@ func main() {
 	)
 
 	flag.StringVar(&host, "h", "127.0.0.1", "Host to listen on")
-	flag.IntVar(&port, "p", 9999, "Port number to listen on")
+	flag.IntVar(&port, "p", 9998, "Port number to listen on")
 	flag.Parse()
 
 	sigc := make(chan os.Signal, 1)
