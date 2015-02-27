@@ -1,34 +1,80 @@
 <html>
 	<head>
+	<style>
+		
+	.clearfix:after { content: "."; display:block; height:0; clear:both; visibility:hidden; }
+	.clearfix { display:inline-block; }
+	* html .clearfix { height:1%; }
+	.clearfix { display:block; }
+	.clear {
+		clear:both;
+	}
+	
+	#container {
+		float: left;
+		width: 100%;
+	}
+	
+	.pageContent {
+		max-width: 980px;
+		padding: 0 10px;
+		margin: 0 auto;
+	}
+	
+	#mainContainer {
+		float: left;
+		width: 100%;
+	}
+	#mainContent {
+		position: relative;
+	}
+	</style>
 		
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 	</head>
 	<body>
-		<h2>Input:</h2>
-		<textarea id="input" class="form-control" rows="5"></textarea>
-		<button id="convert" class="btn" type="submit">Convert</button>
-		<h2>Output:</h2>
-		<textarea id="result" class="form-control" rows="10"></textarea>
-		<h2>Preview:</h2>
-		<div id="resultHtml"></div>
-		<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-		<script type="text/javascript">
-		$(document).ready(function() {
-			$("#convert").click(function() {
-				$.ajax({
-					method: 'post',
-					url : '/convert',
-					data : {html: $("#input").val()},
-					success : function(data) {
-						$("#result").val(data.result);
-						$("#resultHtml").html(data.result);
-					}
+		
+		<div id="container">
+			<div class="clearfix">
+				<div class="pageContent clearfix">
+					<div class="page-header">
+					<h1>Premailer, inline styling</h1>
+					</div>
+				</div>
+			</div>
+			<div id="mainContent" class="pageContent clearfix">
+				<h2>Input:</h2>
+				<textarea id="input" class="form-control" name="input" rows="5"></textarea>
+		   		<button id="convert" type="submit" class="btn">Convert</button>
+				<h2>Output:</h2>
+				<textarea id="result" class="form-control" rows="10"></textarea>
+		
+				<h2>Preview:</h2>
+				<div id="resultHtml"></div>
+				<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+				<script type="text/javascript">
+				$(document).ready(function() {
+					$("#convert").click(function() {
+						$.ajax({
+							method: 'post',
+							url : '/convert',
+							data : {html: $("#input").val()},
+							success : function(data) {
+								$("#result").val(data.result);
+								$("#resultHtml").html(data.result);
+							}
+						});
+					})
 				});
-			})
-		});
-		</script>
+				</script>
+			</div>
+			<div class="clearfix">
+				<div class="pageContent clearfix"></div>
+			</div>
+		</div>
+		</div>
 	</body>
 </html>
