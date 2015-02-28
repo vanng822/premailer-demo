@@ -40,10 +40,17 @@ func main() {
 	app.Post("/convert", func(r render.Render, req *http.Request) {
 		req.ParseForm()
 		html := req.Form.Get("html")
+		cssToAttributes := req.Form.Get("cssToAttributes")
+		removeClasses := req.Form.Get("removeClasses")
 		var result string
 		if html != "" {
-			options := &premailer.Options{}
-			options.CssToAttributes = true
+			options := premailer.NewOptions()
+			if removeClasses == "true" {
+				options.RemoveClasses = true
+			}
+			if cssToAttributes == "false" {
+				options.CssToAttributes = false
+			}
 			pre := premailer.NewPremailerFromString(html, options)
 			result, _ = pre.Transform()
 		} else {
