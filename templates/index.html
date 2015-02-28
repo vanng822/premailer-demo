@@ -66,10 +66,7 @@
 							data : {html: $("#input").val()},
 							success : function(data) {
 								$("#result").val(data.result);
-								var iframe = document.createElement('iframe');
-								iframe.width = "100%"
-								iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(data.result);
-								$("#resultHtml").empty().append(iframe);
+								$("#resultHtml").html(data.result);
 							}
 						});
 					})
