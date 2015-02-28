@@ -42,7 +42,9 @@ func main() {
 		html := req.Form.Get("html")
 		var result string
 		if html != "" {
-			pre := premailer.NewPremailerFromString(html)
+			options := &premailer.Options{}
+			options.CssToAttributes = true
+			pre := premailer.NewPremailerFromString(html, options)
 			result, _ = pre.Transform()
 		} else {
 			result = ""
