@@ -62,6 +62,13 @@ func main() {
 		}
 		r.JSON(w, http.StatusOK, map[string]string{"result": result})
 	})
+
+	timer := app.UseTimer(nil)
+
+	app.Get("/timers", func(w http.ResponseWriter, req *http.Request, _ r2router.Params) {
+		timer.ServeHTTP(w, req)
+	})
+
 	log.Printf("listening to address %s:%d", host, port)
 	go http.ListenAndServe(fmt.Sprintf("%s:%d", host, port), app)
 	sig := <-sigc
