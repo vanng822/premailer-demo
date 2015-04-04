@@ -19,7 +19,7 @@ install:
 	go install
 
 reload:
-	kill -s HUP $(cat premailer.pid)
+	kill -s HUP $(shell cat premailer.pid)
 
 clean:
 	rm -r pkg/
