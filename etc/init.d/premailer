@@ -8,7 +8,7 @@
 # Short-Description: Start/stop node servers batch script
 ### END INIT INFO
 
-APP_HOME=/home/vanng822/git/premailer
+APP_HOME=/home/vanng822/src/premailer-demo
 SUDO_AS_USER="sudo -H -u vanng822"
 PID_FILE=$APP_HOME/premailer.pid
 CMD=$APP_HOME/bin/premailer
