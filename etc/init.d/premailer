@@ -27,7 +27,7 @@ stop_server() {
 start_server() {
 	echo "Start server"
     cd $APP_HOME
-   	$SUDO_AS_USER god --pidfile $PID_FILE -s $CMD > /dev/null 2>&1&
+   	$SUDO_AS_USER /usr/local/go/bin/god --pidfile $PID_FILE -s $CMD > /dev/null 2>&1&
    	echo "Server started"
 }
 
