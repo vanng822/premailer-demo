@@ -3,25 +3,25 @@
 	<title>Premailer, inline styling</title>
 	<meta name="description" content="Premailer, inline styling" />
 	<style>
-	.clearfix { display:block; }	
+	.clearfix { display:block; }
 	.clearfix:after { content: ""; display:block; height:0; clear:both; visibility:hidden; }
 	* html .clearfix { height:1%; }
-	
+
 	.clear {
 		clear:both;
 	}
-	
+
 	#container {
 		float: left;
 		width: 100%;
 	}
-	
+
 	.pageContent {
 		max-width: 980px;
 		padding: 0 10px;
 		margin: 0 auto;
 	}
-	
+
 	#mainContainer {
 		float: left;
 		width: 100%;
@@ -30,13 +30,13 @@
 		position: relative;
 	}
 	</style>
-		
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 	</head>
 	<body>
-		
+
 		<div id="container">
 			<div class="clearfix">
 				<div class="pageContent clearfix">
@@ -51,7 +51,7 @@
 		   		<button id="convert" type="submit" class="btn">Convert</button>
 				<h2>Output:</h2>
 				<textarea id="result" class="form-control" rows="10"></textarea>
-		
+
 				<h2>Preview:</h2>
 				<div id="resultHtml"></div>
 				<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
@@ -77,13 +77,5 @@
 			</div>
 		</div>
 		</div>
-		<script type="text/javascript">
-		var _webperfAccount = 'premailer.isgoodness.com';
-		(function() {
-			var webperf = document.createElement('script'); webperf.type = 'text/javascript'; webperf.async = true;
-			webperf.src = 'http://webperf.isgoodness.com/webperf.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(webperf, s);
-		})();
-		</script>
 	</body>
 </html>
