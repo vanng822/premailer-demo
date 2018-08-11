@@ -8,13 +8,14 @@ deps:
 	go get -u github.com/vanng822/r2router
 	go get -u github.com/unrolled/render
 	go get -u github.com/vanng822/go-premailer/premailer
+	go get -u github.com/vanng822/recovery
 
 build:
-	go build -o bin/premailer
+	docker build -t premailer-demo .
 
 run:
-	go run premailer.go
-	
+	docker run -p 9998:9998 -d -it premailer-demo
+
 install:
 	go install
 

@@ -3,14 +3,18 @@ package main
 import (
 	"flag"
 	"fmt"
+
 	"github.com/unrolled/render"
 	"github.com/vanng822/go-premailer/premailer"
 	"github.com/vanng822/r2router"
+
 	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/vanng822/recovery"
 )
 
 func main() {
@@ -19,13 +23,15 @@ func main() {
 		port int
 	)
 
-	flag.StringVar(&host, "h", "127.0.0.1", "Host to listen on")
+	flag.StringVar(&host, "h", "0.0.0.0", "Host to listen on")
 	flag.IntVar(&port, "p", 9998, "Port number to listen on")
 	flag.Parse()
 
 	sigc := make(chan os.Signal, 1)
 	signal.Notify(sigc, os.Kill, os.Interrupt, syscall.SIGTERM, syscall.SIGUSR2)
 	app := r2router.NewSeeforRouter()
+	rec := recovery.NewRecovery()
+	app.Before(rec.Handler)
 
 	r := render.New(render.Options{
 		Directory:       "templates",
