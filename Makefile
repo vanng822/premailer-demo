@@ -1,26 +1,20 @@
-export GOPATH := $(shell pwd)
+OS := $(shell uname)
 
-all:
-	make deps
-	make build
-
-deps:
-	go get -u github.com/vanng822/r2router
-	go get -u github.com/unrolled/render
-	go get -u github.com/vanng822/go-premailer/premailer
-	go get -u github.com/vanng822/recovery
+ifeq ($(OS),Darwin)
+DOCKER := docker
+else
+DOCKER := sudo docker
+endif
 
 build:
-	docker build -t premailer-demo .
+	$(DOCKER) build -t premailer-demo .
 
 run:
-	docker run -p 9998:9998 -d -it premailer-demo
+	$(DOCKER) run --network raspberrypi3_default \
+	 	--ip 172.18.0.5 --name premailer-demo -d -it premailer-demo
 
-install:
-	go install
+stop:
+	$(DOCKER) stop premailer-demo
 
-reload:
-	kill -s HUP $(shell cat premailer.pid)
-
-clean:
-	rm -r pkg/
+rm:
+	$(DOCKER) rm premailer-demo
