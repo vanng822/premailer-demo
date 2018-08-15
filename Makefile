@@ -10,7 +10,7 @@ build:
 	$(DOCKER) build -t premailer-demo .
 
 run:
-	$(DOCKER) run --network raspberrypi3_default \
+	$(DOCKER) run --rm --network raspberrypi3_default \
 	 	--ip 172.18.0.5 --name premailer-demo -d -it premailer-demo
 
 stop:
