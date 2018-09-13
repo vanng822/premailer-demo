@@ -20,4 +20,4 @@ COPY --from=build /go/src/premailer/templates templates
 CMD ["/go/bin/premailer"]
 
 HEALTHCHECK --interval=15s --timeout=2s --retries=12 \
-  CMD curl -H "Host: premailer.isgoodness.com" localhost:9998/timers || exit 1
+  CMD curl localhost:9998/timers || exit 1
