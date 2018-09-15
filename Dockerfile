@@ -14,10 +14,11 @@ RUN go build -o /go/bin/premailer
 FROM alpine:latest
 
 RUN apk add --no-cache libc6-compat
+RUN apk add --no-cache curl
 WORKDIR /go/src/premailer
 COPY --from=build /go/bin/premailer /go/bin/premailer
 COPY --from=build /go/src/premailer/templates templates
 CMD ["/go/bin/premailer"]
 
 HEALTHCHECK --interval=15s --timeout=2s --retries=12 \
-  CMD curl localhost:9998/timers || exit 1
+  CMD curl --fail localhost:9998/timers || exit 1

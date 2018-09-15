@@ -18,3 +18,9 @@ stop:
 
 rm:
 	$(DOCKER) rm premailer-demo
+
+deploy:
+	make build
+	make stop
+	make rm
+	make run
