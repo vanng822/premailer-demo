@@ -16,6 +16,7 @@ FROM alpine:latest
 RUN apk add --no-cache libc6-compat
 RUN apk add --no-cache curl
 WORKDIR /go/src/premailer
+ADD VERSION .
 COPY --from=build /go/bin/premailer /go/bin/premailer
 COPY --from=build /go/src/premailer/templates templates
 CMD ["/go/bin/premailer"]
