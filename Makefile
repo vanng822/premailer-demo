@@ -23,7 +23,7 @@ rm:
 	$(DOCKER) rm $(name)
 
 release: build
-	docker save $(image_tag) | ssh -C $(REMOTE_HOST) sudo docker load
+	docker save $(image_tag) | ssh -C $(DOCKER_REMOTE_HOST) sudo docker load
 
 deploy:
 	make stop
