@@ -50,20 +50,20 @@
   revision = "e3d36948cdc35f9b289a04df51202e9e25f0a213"
 
 [[projects]]
-  digest = "1:e6e13e9a08f8968ad682f1d195a57e89a4b19ea4ae381a2f3a90c10e0e4055de"
+  branch = "master"
+  digest = "1:b147d4ea22d26c76251d32e57b91605ab35db7032eca30200bb08298613d0bca"
   name = "github.com/vanng822/r2router"
   packages = ["."]
   pruneopts = "UT"
-  revision = "85aeaac23a94e4ceea70e7c0af7e3ba60a64e7ff"
-  version = "v0.2"
+  revision = "1023140a4f309480a35668e695deda550100f502"
 
 [[projects]]
-  digest = "1:4838192fbbf1fda29bab59e26e13322bc02ea174fe75134c8a79d35e2d1acf7c"
+  branch = "master"
+  digest = "1:ee9dfdf08a936a73c3068adda5cf3192cbcb2333f3383eb4283e683bbcf32c40"
   name = "github.com/vanng822/recovery"
   packages = ["."]
   pruneopts = "UT"
-  revision = "2f87d85e2bc6d037c8d47da03c8d501b96890a5a"
-  version = "v0.1"
+  revision = "05bd745de2a9179c2ab6c5a516099605220eb9a1"
 
 [[projects]]
   branch = "master"
