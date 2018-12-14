@@ -9,7 +9,7 @@ RUN dep ensure -vendor-only
 
 COPY . .
 
-RUN go build -o /go/bin/premailer
+RUN GOOS=linux GOARM=7 GOARCH=arm go build -o /go/bin/premailer
 
 FROM alpine:latest
 
