@@ -25,6 +25,12 @@ rm:
 release: build
 	docker save $(image_tag) | ssh -C $(DOCKER_REMOTE_HOST) sudo docker load
 
+remote-deploy:
+	ssh -C $(DOCKER_REMOTE_HOST) "sudo docker stop $(name)" \
+		"&& sudo docker rm $(name) " \
+		"&& sudo docker run --restart=always --network raspberrypi3_default " \
+	 	"--ip 172.18.0.5 --name $(name) -d -it $(image_tag)"
+
 deploy:
 	make stop
 	make rm
