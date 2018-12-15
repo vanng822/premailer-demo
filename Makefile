@@ -10,7 +10,9 @@ DOCKER := sudo docker
 endif
 
 build:
-	$(DOCKER) build -t $(image_tag) .
+	$(DOCKER) build --build-arg "goos=linux" \
+		--build-arg "goarm=7" --build-arg "goarch=arm" \
+		-t $(image_tag) .
 
 run:
 	$(DOCKER) run --restart=always --network raspberrypi3_default \

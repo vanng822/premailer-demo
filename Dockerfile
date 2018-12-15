@@ -9,8 +9,10 @@ RUN dep ensure -vendor-only
 
 COPY . .
 
-RUN GOOS=linux GOARM=7 GOARCH=arm go build -o /go/bin/premailer
-
+ARG goos
+ARG goarm
+ARG goarch
+RUN GOOS=${goos} GOARM=${goarm} GOARCH=${goarch} go build -o /go/bin/premailer
 FROM alpine:latest
 
 RUN apk add --no-cache libc6-compat
