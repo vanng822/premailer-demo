@@ -1,4 +1,4 @@
-FROM golang:1.9.2-alpine3.6 AS build
+FROM golang:1.12-alpine AS build
 
 RUN apk add --no-cache git
 RUN go get github.com/golang/dep/cmd/dep
@@ -13,15 +13,16 @@ ARG goos
 ARG goarm
 ARG goarch
 RUN GOOS=${goos} GOARM=${goarm} GOARCH=${goarch} go build -o /go/bin/premailer
+RUN cd healthcheck && GOOS=${goos} GOARM=${goarm} GOARCH=${goarch} go build -o /go/bin/healthcheck
+
 FROM alpine:latest
 
-RUN apk add --no-cache libc6-compat
-RUN apk add --no-cache curl
 WORKDIR /go/src/premailer
 ADD VERSION .
 COPY --from=build /go/bin/premailer /go/bin/premailer
+COPY --from=build /go/bin/healthcheck /go/bin/healthcheck
 COPY --from=build /go/src/premailer/templates templates
 CMD ["/go/bin/premailer"]
 
-HEALTHCHECK --interval=15s --timeout=2s --retries=12 \
-  CMD curl --fail localhost:9998/timers || exit 1
+HEALTHCHECK --interval=15s --timeout=2s --retries=3 \
+  CMD ["/go/bin/healthcheck"] || exit 1
