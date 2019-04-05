@@ -61,8 +61,10 @@ func main() {
 			if cssToAttributes == "false" {
 				options.CssToAttributes = false
 			}
-			pre := premailer.NewPremailerFromString(html, options)
-			result, _ = pre.Transform()
+			pre, err := premailer.NewPremailerFromString(html, options)
+			if err == nil {
+				result, _ = pre.Transform()
+			}
 		} else {
 			result = ""
 		}

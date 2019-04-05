@@ -2,12 +2,12 @@
 
 
 [[projects]]
-  digest = "1:a62f6ed230a8cd138a9efbe718e7d0b0294f139266f5f55cd942769a9aac8de2"
+  digest = "1:573fa46f8d413d4bc3f7cc5e86b2c43cb21559f4fb0a19d9874d228e28fdc07c"
   name = "github.com/PuerkitoBio/goquery"
   packages = ["."]
   pruneopts = "UT"
-  revision = "dc2ec5c7ca4d9aae063b79b9f581dd3ea6afd2b2"
-  version = "v1.4.1"
+  revision = "2d2796f41742ece03e8086188fa4db16a3a0b458"
+  version = "v1.5.0"
 
 [[projects]]
   digest = "1:66b3310cf22cdc96c35ef84ede4f7b9b370971c4025f394c89a2638729653b11"
@@ -27,11 +27,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:f099f01404787f3d89257d3dd7fbea0c8da7bd9fd3ff9ae9d8bf80c56523b125"
+  digest = "1:79b4d0d87ca54191e8f7e4ae0ac1f33cc7eea9ee2b9fe7db23044ce89dafbd1b"
   name = "github.com/unrolled/render"
   packages = ["."]
   pruneopts = "UT"
-  revision = "4206df6ff70175d219fdb4672ae157fbed820103"
+  revision = "1ac792296fd4f4de9559a5f9a85c277c54ffb1cf"
 
 [[projects]]
   branch = "master"
@@ -43,11 +43,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:5e6f4950a111060789fc47ae6c187ca37baebd81dfd95cfcc5a702a105bb1fbd"
+  digest = "1:6b5cf7edf3113b7669e88c722927164343e389c7cc0d88910f645c79fe9d7d81"
   name = "github.com/vanng822/go-premailer"
   packages = ["premailer"]
   pruneopts = "UT"
-  revision = "e3d36948cdc35f9b289a04df51202e9e25f0a213"
+  revision = "9e5acafb5fcfa14aaae46b3a07ba380669236b46"
 
 [[projects]]
   branch = "master"
@@ -67,14 +67,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:1ef52fe3c5134f18540c4ca5ee70c57f14a3c85b21e05867f0e793de006169a6"
+  digest = "1:81e1a7dd1ab100e3ac0ad948e844959a0ebb225ad22849ccfa028503da17caed"
   name = "golang.org/x/net"
   packages = [
     "html",
     "html/atom",
   ]
   pruneopts = "UT"
-  revision = "c39426892332e1bb5ec0a434a079bf82f5d30c54"
+  revision = "eb5bcb51f2a31c7d5141d810b70815c05d9c9146"
 
 [solve-meta]
   analyzer-name = "dep"
