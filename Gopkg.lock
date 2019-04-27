@@ -35,19 +35,19 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:1eab70aab2688f63717f0c7b3ead7fed2819cc11e59c7310b6512dfe6e9fb80c"
+  digest = "1:c697dfde900a834bd3b650b7b8a462d168b9d6572a219e18254b69c31eb262f8"
   name = "github.com/vanng822/css"
   packages = ["."]
   pruneopts = "UT"
-  revision = "c6885fd13293bb05bfcdd824ce4a4aa4ca89e075"
+  revision = "630d8a6dd375098a1675f2022c1c8ce2dbc10dcd"
 
 [[projects]]
   branch = "master"
-  digest = "1:6b5cf7edf3113b7669e88c722927164343e389c7cc0d88910f645c79fe9d7d81"
+  digest = "1:5e2b2e9e9dab2919fcaf761905c5a69020061bd429be4d5d6157c16e6fb05c61"
   name = "github.com/vanng822/go-premailer"
   packages = ["premailer"]
   pruneopts = "UT"
-  revision = "9e5acafb5fcfa14aaae46b3a07ba380669236b46"
+  revision = "25062432fe0b5edfbd30579259e39f43ffa99ad6"
 
 [[projects]]
   branch = "master"
@@ -67,14 +67,14 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:81e1a7dd1ab100e3ac0ad948e844959a0ebb225ad22849ccfa028503da17caed"
+  digest = "1:a06e510ccc144ba99f5432312630fd9082ceed0f34aeb4d5947dad1d8c5ee4f9"
   name = "golang.org/x/net"
   packages = [
     "html",
     "html/atom",
   ]
   pruneopts = "UT"
-  revision = "eb5bcb51f2a31c7d5141d810b70815c05d9c9146"
+  revision = "4829fb13d2c62012c17688fa7f629f371014946d"
 
 [solve-meta]
   analyzer-name = "dep"
